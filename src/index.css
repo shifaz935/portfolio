@@ -1,4 +1,145 @@
 @import "tailwindcss";
-body {
-  font-family: "Poppins", sans-serif;
+
+@theme {
+  --color-cyan-glow: rgba(0, 255, 255, 0.4);
+  --color-cyan-bright: #00ffff;
+  --color-dark-navy: #071120;
+  --color-almost-black: #020612;
+  --color-glass-bg: rgba(7, 17, 32, 0.4);
+  --color-glass-border: rgba(0, 255, 255, 0.15);
+}
+
+@layer base {
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-almost-black);
+    color: #f3f4f6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #020612;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #111e35;
+    border-radius: 10px;
+    border: 2px solid #020612;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00ffff;
+    box-shadow: 0 0 10px #00ffff;
+  }
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(7, 17, 32, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-card {
+  background: rgba(7, 17, 32, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 255, 255, 0.35);
+  box-shadow: 0 10px 40px -10px rgba(0, 255, 255, 0.25);
+  background: rgba(7, 17, 32, 0.5);
+}
+
+/* Glow Utilities */
+.glow-cyan {
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.35);
+}
+
+.glow-text-cyan {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.glow-border {
+  position: relative;
+}
+
+.glow-border::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(90deg, transparent, #00ffff, transparent);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.glow-border:hover::after {
+  opacity: 1;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes hologrid {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 40px;
+  }
+}
+
+.holo-bg {
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: hologrid 20s linear infinite;
+}
+
+/* Hide cursor on specific elements if using custom cursor */
+.custom-cursor-hover {
+  cursor: none;
 }
