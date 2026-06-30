@@ -44,7 +44,7 @@ function ChatBot() {
     goals: "Shifas aims to work as a professional AI Engineer or Machine Learning and IoT systems developer. He aspires to join innovation leaders such as Google, Microsoft, or Tesla to build hardware-integrated artificial intelligence solutions.",
     strengths: "Shifas's key attributes include: Problem Solving (highly analytical debug mindset), Agile Learning (rapidly picks up hardware boards and software libraries), Team Player (collaborative systems builder), and Adaptability (functions well under tight project delivery targets).",
     resume: "You can download Shifas's resume directly as a PDF from this link: /resume.pdf. The file contains his complete academic history, projects list, credentials, and achievements.",
-    contact: "You can contact Shifas via:\n• Email: shifasshamsu2003@gmail.com\n• LinkedIn: linkedin.com/in/shifas-p-s-965895397\n• GitHub: github.com/shifaz935\n• WhatsApp: +91 965895397"
+    contact: "You can contact Shifas via:\n• Email: shifasshamsu2003@gmail.com\n• LinkedIn: linkedin.com/in/shifas-p-s-965895397\n• GitHub: github.com/shifaz935\n• WhatsApp: +91 7012918968"
   }
 
   // AUTO SCROLL
@@ -56,7 +56,7 @@ function ChatBot() {
   const speakText = (text) => {
     if (!voiceEnabled || !window.speechSynthesis) return
     window.speechSynthesis.cancel() // Stop any ongoing speech
-    
+
     // Remove emojis/markdown symbols before reading
     const cleanText = text.replace(/[*#👋🎓⚡📂🤖🎯💪📄📞•]/g, "")
     const utterance = new SpeechSynthesisUtterance(cleanText)
@@ -99,7 +99,7 @@ function ChatBot() {
     if (q.includes("contact") || q.includes("email") || q.includes("phone") || q.includes("address") || q.includes("reach")) {
       return fallbackDatabase.contact
     }
-    
+
     // Default summarizing prompt answer
     return "Shifas is a B.Tech Artificial Intelligence & Data Science graduate. He is an AI and ML enthusiast, an IoT systems builder, and a Full Stack software engineer. You can contact him at shifasshamsu2003@gmail.com, view his projects on GitHub, or click any of the suggestion buttons below for specific credentials!"
   }
@@ -162,7 +162,7 @@ function ChatBot() {
               Email: shifasshamsu2003@gmail.com
               GitHub: github.com/shifaz935
               LinkedIn: linkedin.com/in/shifas-p-s-965895397
-              WhatsApp: +91 965895397
+              WhatsApp: +91 7012918968
               
               Keep responses clean, structured, and recruiter-focused.`
             },
@@ -206,7 +206,7 @@ function ChatBot() {
       {/* CHAT WINDOW (ChatGPT-like Panel) */}
       {isOpen && (
         <div className="fixed bottom-24 right-4 md:right-8 w-[92vw] max-w-[420px] h-[75vh] md:h-[620px] bg-[#071120]/80 border border-cyan-500/30 rounded-[30px] shadow-[0_0_50px_rgba(0,255,255,0.2)] overflow-hidden z-[99999] flex flex-col backdrop-blur-2xl transition-all duration-500 text-left">
-          
+
           {/* HEADER */}
           <div className="bg-[#0b1b31]/90 border-b border-cyan-500/20 p-4 flex justify-between items-center text-cyan-300">
             <div className="flex items-center gap-3">
@@ -226,11 +226,10 @@ function ChatBot() {
               {/* Voice toggle */}
               <button
                 onClick={() => setVoiceEnabled(!voiceEnabled)}
-                className={`p-2 rounded-lg text-sm border cursor-pointer transition-colors ${
-                  voiceEnabled 
-                    ? "bg-cyan-500/25 border-cyan-400 text-cyan-300" 
-                    : "bg-transparent border-cyan-500/10 text-gray-500 hover:text-cyan-400"
-                }`}
+                className={`p-2 rounded-lg text-sm border cursor-pointer transition-colors ${voiceEnabled
+                  ? "bg-cyan-500/25 border-cyan-400 text-cyan-300"
+                  : "bg-transparent border-cyan-500/10 text-gray-500 hover:text-cyan-400"
+                  }`}
                 title={voiceEnabled ? "Voice output enabled" : "Voice output disabled"}
               >
                 {voiceEnabled ? <FaVolumeUp /> : <FaVolumeMute />}
@@ -253,11 +252,10 @@ function ChatBot() {
                 className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`max-w-[85%] px-4 py-3 rounded-2xl text-xs md:text-sm leading-relaxed whitespace-pre-line ${
-                    msg.sender === "user"
-                      ? "bg-cyan-400 text-black font-semibold rounded-tr-sm shadow-[0_0_15px_rgba(0,255,255,0.15)]"
-                      : "bg-[#020612]/70 text-gray-200 border border-cyan-500/10 rounded-tl-sm"
-                  }`}
+                  className={`max-w-[85%] px-4 py-3 rounded-2xl text-xs md:text-sm leading-relaxed whitespace-pre-line ${msg.sender === "user"
+                    ? "bg-cyan-400 text-black font-semibold rounded-tr-sm shadow-[0_0_15px_rgba(0,255,255,0.15)]"
+                    : "bg-[#020612]/70 text-gray-200 border border-cyan-500/10 rounded-tl-sm"
+                    }`}
                 >
                   {msg.text}
                 </div>
@@ -303,7 +301,7 @@ function ChatBot() {
               }}
               className="w-full bg-[#020612]/70 text-gray-200 border border-cyan-500/25 focus:border-cyan-400 px-4 py-3 rounded-xl outline-none text-xs md:text-sm min-w-0"
             />
-            
+
             <button
               onClick={() => sendMessage()}
               className="bg-cyan-400 text-black w-11 h-11 rounded-xl flex items-center justify-center hover:bg-cyan-300 cursor-pointer transition-transform hover:scale-105 shrink-0"

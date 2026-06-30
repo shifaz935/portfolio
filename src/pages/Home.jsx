@@ -725,7 +725,7 @@ function Home() {
                   <span className="w-8 h-8 rounded-lg bg-cyan-950/40 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
                     ✆
                   </span>
-                  <span>WhatsApp: +91 965895397 (Ref)</span>
+                  <span>WhatsApp: +91 7012918968</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="w-8 h-8 rounded-lg bg-cyan-950/40 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
@@ -765,7 +765,7 @@ function Home() {
                 Send Secure Email
               </a>
               <a
-                href="https://wa.me/7012918968"
+                href="https://wa.me/917012918968"
                 target="_blank"
                 rel="noreferrer"
                 className="w-full text-center bg-[#071120] hover:bg-cyan-500/10 border border-cyan-500/40 hover:border-cyan-400 text-cyan-300 py-4 rounded-2xl font-bold transition-all hover:scale-[1.02]"
